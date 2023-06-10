@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# frozen_string_literal: false
 
 # Clase principal se define la estructura comun.
 class Cipher
@@ -15,20 +15,21 @@ end
 # Clase heredada de Cipher
 class VigenereCipher < Cipher
   # Se implementa el metodo process que recibe como argumento el texto a cifrar.
-  def process(text) # rubocop:disable Metrics/MethodLength
+  def process(text) # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     alphabet = ('A'..'Z').to_a # Crea un array con todas las letras del alfabeto en mayusculas.
     processed_text = '' # Inicia la variable que almacenara el texto cifrado.
 
-    text.chars.each_with_index do |char, index| # Se itera sobre cada caracter del texto.
-      if char == ' '
-        processed_text << ' ' # Si el caracter es un espacio en blanco se agrega directo a proccesed_text y continua al siguiente caracter.
-        next
-      end
+    text_without_spaces = text.gsub(' ', '') # se eliminan los espacios en blanco del texto
 
+    text_without_spaces.chars.each_with_index do |char, index|
       char_code = alphabet.index(char.upcase) # Si el caracter no es un espacio en blanco se obtiene el indice que le corresponde en el array y se almacena.
       key_code = alphabet.index(@key[index % @key.length].upcase) # Aqui se obtiene el indice del caracter que corresponde de la clave  y se almacena.
       shifted_code = yield(char_code, key_code) # Se llama a un bloque yield con char_code y key_code como argumentos proporsionados por las subclases.
       processed_text << alphabet[shifted_code]
+    end
+
+    text.chars.each_with_index do |char, index| # Se recorre el texto y se verifica si cada caracter es un espacio en blanco
+      processed_text.insert(index, ' ') if char == ' ' # Si es un espacio en blanco se agrega en la posicion que corresponde
     end
 
     processed_text
