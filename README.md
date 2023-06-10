@@ -4,14 +4,26 @@
 
 > [Ver instrucciones antes de iniciar](./instructions.md)
 
-This README would normally document whatever steps are necessary to get the application up and running.
+## Table of contents
+  - [Description](#Description)
+  - [How to Install and Run the Project](#How-to-Use-the-Project)
+  - [Use Rubocop](#Use-Rubocop)
+  - [Use MinuTest](#Use-MiniTes-(Test))
+  - [Credits](#Credits)
+  
+## Description
+This solution shows how to encrypt a message using the Vigenere encryption method.
 
-Things you may want to cover:
+## How to Install and Run the Project
+ruby cipher_vigenere.rb
 
-- Title or Project Name
-- Table of contents
-- Description. A brief description of what the project is about
-- How to Install and Run the Project.
-- How to Use the Project.
-- Credits
-- Badges
+## How to Use the Project.
+
+### Use Rubocop
+rubocop cipher_vigenere.rb
+
+### Use MiniTes (Test)
+//
+
+## Credits
+- [@Alonso2105](https://github.com/Alonso2105)
