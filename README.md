@@ -20,10 +20,10 @@ ruby cipher_vigenere.rb
 ## How to Use the Project.
 
 ### Use Rubocop
-rubocop cipher_vigenere.rb
+rubocop
 
 ### Use MiniTes (Test)
-//
+ruby -Ilib:test cipher_test.rb
 
 ## Credits
 - [@Alonso2105](https://github.com/Alonso2105)
