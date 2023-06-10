@@ -6,7 +6,7 @@ class Cipher
     @key = key.upcase
   end
 
-  # Se define el metodo process, las subclases deben implementar el metodo con su logica.
+  # Se define el metodo process, genera un error si no esta implementado en las subclases.
   def process(text)
     raise NotImplementedError, "Subclasses must implement 'process' method"
   end
@@ -58,21 +58,21 @@ end
 # Ejemplo de uso
 
 # el usuario ingresa una clave de cifrado y un texto
-puts 'Ingresa la clave:'
-key = gets.chomp
+# puts 'Ingresa la clave:'
+# key = gets.chomp
 
-puts 'Ingresa el texto:'
-text = gets.chomp
+# puts 'Ingresa el texto:'
+# text = gets.chomp
 
-# Se crea la instancia de VigenereEncrypter y se cifra el texto
-encrypter = VigenereEncrypter.new(key)
-ciphertext = encrypter.process(text)
+# # Se crea la instancia de VigenereEncrypter y se cifra el texto
+# encrypter = VigenereEncrypter.new(key)
+# ciphertext = encrypter.process(text)
 
-# Se crea la instancia de VigenereDecrypter y se descifra el texto
-decrypter = VigenereDecrypter.new(key)
-plaintext = decrypter.process(ciphertext)
+# # Se crea la instancia de VigenereDecrypter y se descifra el texto
+# decrypter = VigenereDecrypter.new(key)
+# plaintext = decrypter.process(ciphertext)
 
-# Salida en consola
-puts "Texto original: #{text}" # Texto a cifrar
-puts "Texto cifrado: #{ciphertext}" # Texto cifrado
-puts "Texto descifrado: #{plaintext}"  # Texto descifrado
+# # Salida en consola
+# puts "Texto original: #{text}" # Texto a cifrar
+# puts "Texto cifrado: #{ciphertext}" # Texto cifrado
+# puts "Texto descifrado: #{plaintext}"  # Texto descifrado
